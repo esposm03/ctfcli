@@ -24,7 +24,7 @@ class Image:
             self.built = False
 
     def build(self) -> Optional[str]:
-        docker_build = subprocess.call(["docker", "build", "-t", self.name, "."], cwd=self.build_path.absolute())
+        docker_build = subprocess.call(["docker", "build", "--platform", "linux/amd64", "-t", self.name, "."], cwd=self.build_path.absolute())
         if docker_build != 0:
             return
 
