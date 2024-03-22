@@ -67,7 +67,7 @@ class SSHDeploymentHandler(DeploymentHandler):
                     "ssh",
                     host_url.netloc,
                     f"docker run -d -p{exposed_port}:{exposed_port} --name {image_basename} "
-                    f"--restart always {image_name}",
+                    f"--restart always --privileged {image_name}",
                 ]
             )
 
